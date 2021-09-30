@@ -26,9 +26,7 @@ public class DSGradientProgressView: UIView, CAAnimationDelegate {
             return CAGradientLayer.self
         }
     }
-    
-    // https://theswiftdev.com/2015/08/05/swift-init-patterns/
-    
+        
     override public init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -56,50 +54,6 @@ public class DSGradientProgressView: UIView, CAAnimationDelegate {
         layer.endPoint = CGPoint(x: 1.0, y: 0.5)
         
         var colors: [CGColor] = []
-        
-        // http://stackoverflow.com/a/39126332/2607823
-        // http://bjmiller.me/post/137624096422/on-c-style-for-loops-removed-from-swift-3
-        // stride syntax changed from the blog's syntax
-        
-        /*
-         
-         // ==== Blue gradient with changing hues ====
-         for hue in stride(from: 190, through: 230, by: 2) {
-         let color = UIColor(hue: CGFloat(1.0 * Double(hue) / 360.0),
-         saturation: 1.0,
-         brightness: 1.0,
-         alpha: 1.0)
-         
-         colors.append(color.cgColor)
-         }
-         
-         // can be done with stride with -2 too. but just to explore another way..
-         
-         for hue in (190...230).reversed() where hue % 2 == 0 {
-         let color = UIColor(hue: CGFloat(1.0 * Double(hue) / 360.0),
-         saturation: 1.0,
-         brightness: 1.0,
-         alpha: 1.0)
-         
-         colors.append(color.cgColor)
-         }
-         */
-        
-        // ==== Constant hue with changing alpha ====
-        
-        /*
-         for alpha in stride(from: 0, through: 40, by: 2) {
-         
-         let color = UIColor(hue: CGFloat(1.0 * Double(hue) / 360.0),
-         saturation: 1.0,
-         brightness: 1.0,
-         alpha: CGFloat(1.0 * Double(alpha)/100.0))
-         
-         barColor.withAlphaComponent(CGFloat(alpha))
-         
-         colors.append(color.cgColor)
-         }
-         */
         
         // === constant color from storyboard or default with changing alpha ===
         for alpha in stride(from: 0, through: 40, by: 2) {
@@ -192,13 +146,5 @@ public class DSGradientProgressView: UIView, CAAnimationDelegate {
             numberOfOperations -= 1
         }
     }
-    
-    /*
-     // Only override draw() if you perform custom drawing.
-     // An empty implementation adversely affects performance during animation.
-     override func draw(_ rect: CGRect) {
-     // Drawing code
-     }
-     */
     
 }
